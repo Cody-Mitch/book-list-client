@@ -8,5 +8,34 @@
 </head>
 <body>
     Hello, is it me Your looking for?
+
+    
+    <section>
+        <ul id="book-list">
+            
+            
+        </ul
+        
+    </section>
+
+
+
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<script>
+    
+    var __API_URL__ = 'http://localhost:3000/api/v1/books'; 
+    
+    $.getJSON(__API_URL__).then(books =>{
+        // console.log(results)
+        results.forEach( bookData => {
+            $('#book-list').append(`<li>${bookData.title}</li>`)
+            
+        });
+    })
+     </script>
 </body>
 </html>
