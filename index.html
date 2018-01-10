@@ -30,8 +30,8 @@
     var __API_URL__ = 'http://localhost:3000/api/v1/books'; 
     
     $.getJSON(__API_URL__).then(books =>{
-        // console.log(results)
-        results.forEach( bookData => {
+        console.log(books)
+        books.forEach( bookData => {
             $('#book-list').append(`<li>${bookData.title}</li>`)
             
         });
