@@ -10,15 +10,14 @@
     Hello, is it me Your looking for?
 
     
-    <section>
-        <ul id="book-list">
-            
-            
-        </ul
+        <section>
+        <ul id="book-list"></ul
+        </section>
+
         
-    </section>
-
-
+    
+    <h2 id="book-count"> <h2>
+    
 
     <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -30,12 +29,17 @@
     var __API_URL__ = 'http://localhost:3000/api/v1/books'; 
     
     $.getJSON(__API_URL__).then(books =>{
-        console.log(books)
+        // console.log(books)
         books.forEach( bookData => {
-            $('#book-list').append(`<li>${bookData.title}</li>`)
+            $('#book-list').append(`<li>${bookData.title}: ${bookData.author}</li>`)
             
         });
+        $('#book-count').append(books.length)
+
+        
     })
+
+
      </script>
 </body>
 </html>
