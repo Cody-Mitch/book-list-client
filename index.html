@@ -1,45 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     Hello, is it me Your looking for?
 
+    <nav class="nav-menu">
+            <ul>
+                <li>
+                    <a href="/">home</a>
+                </li>
+                <li>
+                    <a href="/books/new">add book</a>
+                </li>
+                <li>
+                    <a href="/book/login">login</a>
+                </li>   
+            </ul>
+        </nav>
+
+
+    <section id="book-list-view" class="page">
+        <ul id="book-list">
+            <!-- books here -->
+        </ul>
+
+
+    </section>
+
+    <section id="book-detail-view" class="page">
+
+
+    </section>
     
-        <section>
-        <ul id="book-list"></ul
-        </section>
+    <section id="book-create-view" class="page">
+        <form >
+            <input type="text" placeholder="title">
+            <input type="text" placeholder="author">
+            <input type="text" placeholder="isbn">
+            <input type="text" placeholder="image_url">
+            <button>submit</button>
+        </form>
+    </section>
 
-        
+
     
-    <h2 id="book-count"> <h2>
-    
 
-    <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
 
-<script>
-    
-    var __API_URL__ = 'http://localhost:3000/api/v1/books'; 
-    
-    $.getJSON(__API_URL__).then(books =>{
-        // console.log(books)
-        books.forEach( bookData => {
-            $('#book-list').append(`<li>${bookData.title}: ${bookData.author}</li>`)
-            
-        });
-        $('#book-count').append(books.length)
+<script src="scripts/views/book-list-view.js"></script>
+<script src="scripts/views/book-detail-view.js"></script>
+<script src="scripts/views/book-create-view.js"></script>
+<script src="scripts/views/book-update-view.js"></script>
+<script src="scripts/views/error-view.js"></script>
+<script src="scripts/views/admin-view.js"></script>
+<script src="scripts/models/book.js"></script>
+<script src="scripts/controllers/routes.js"></script>
 
-        
-    })
-
-
-     </script>
+                
 </body>
+
 </html>
