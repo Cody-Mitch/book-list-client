@@ -6,7 +6,8 @@ var app = app || {};
 
     const __API_URL__ = 'http://localhost:3000/api/v1/books'
 
-    function Book() {
+    function Book(newBook) {
+        Object.keys(newBook).forEach(key => this[key]= newBook[key])
         
     }
 
@@ -36,8 +37,20 @@ var app = app || {};
         }).catch(errorCallback)
     }
 
-    Book.create = book => {
-        return $.post(__API_URL__, book).catch(errorCallback)
+    Book.create = event => {
+
+        var addBook = new Book ({
+            title: $('#create-title').val(),
+            author: $('#create-author').val(),
+            image_url: $('#create-url').val(),
+            isbn: $('#create-isbn').val(),
+            description: $('#create-description').val()
+          })
+
+          event.preventDefault();
+        return $.post(__API_URL__, addBook)
+
+        .catch(errorCallback)
     }
 
     module.Book = Book

@@ -13,7 +13,7 @@ var app = app || {};
         $('.page').hide()
         
         
-        $view.append(`<h1>${book.title}: ${book.author}:<img src="${book.image_url}></h1>`)
+        $view.append(`<h1>${book.title}: ${book.author}:${book.description}:<img src="${book.image_url}"></h1>`)
 
         $view.show()
     }

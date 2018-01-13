@@ -10,8 +10,14 @@ var app = app || {};
 
 
         $view.show()
+
+        $('#new-book').on('click', app.Book.create)
+        
+    
     }
     
     module.bookCreateView = bookCreateView
 
 })(app)
+
+
