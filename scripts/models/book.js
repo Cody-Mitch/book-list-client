@@ -4,7 +4,7 @@ var app = app || {};
 
 (module => {
 
-    const __API_URL__ = 'http://localhost:3000/api/v1/books'
+    const __API_URL__ = 'https://cg-mh-booklist.herokuapp.com/api/v1/books'
 
     function Book(newBook) {
         Object.keys(newBook).forEach(key => this[key]= newBook[key])

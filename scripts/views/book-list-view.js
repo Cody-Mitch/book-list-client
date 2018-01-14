@@ -9,26 +9,33 @@ var app = app || {};
     bookListView.init = (books) => {
 
         $('.page').hide()
-        console.log('books', books)
+        // console.log('books', books)
 
+        // $('#book-list').empty()
+        // let source = $('#book-item-template').text();
+        // var template = Handlebars.compile(source);
+        // books.forEach(function (book) {
+        //     $('#book-list').append(template(book));
+        // })
         $('#book-list').empty()
         books.forEach(book => {
-            console.log(book)
+ 
             $('#book-list').append(`
             <li data-id="${book.book_id}"> ${book.title}:${book.author}:<img src="${book.image_url}"></li>
             `)
         })
+ 
+      $('#book-list').on('click', 'li', (event) => {
 
-        $('#book-list').on('click', 'li', (event) => {
+        const id = $(event.target).data('id')
+        page('/books/' + id)
 
-            const id = $(event.target).data('id')
-            page('/books/' + id)
+    })    
 
-        })    
+    $view.show()
 
-        $view.show()
     }
     
     module.bookListView = bookListView
 
-})(app)
+}) (app)
