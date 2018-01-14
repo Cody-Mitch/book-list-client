@@ -6,6 +6,7 @@ var app = app || {};
 
     const __API_URL__ = 'https://cg-mh-booklist.herokuapp.com/api/v1/books'
 
+
     function Book(newBook) {
         Object.keys(newBook).forEach(key => this[key]= newBook[key])
         
@@ -29,12 +30,17 @@ var app = app || {};
         }).catch(errorCallback)
     }
 
-    Book.update = book => {
+    Book.update = (book, callback) => {
+        console.log(book , 'this is a book')
         return $.ajax({
             url: __API_URL__ + '/' + book.book_id,
             method: 'PUT',
             data: book
-        }).catch(errorCallback)
+
+
+        })
+        .then(callback)
+        .catch(errorCallback)
     }
 
     Book.create = event => {
